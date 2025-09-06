@@ -3,383 +3,798 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="QNEET - Your one-stop NEET Resource Hub">
-    <meta name="theme-color" content="#3b82f6">
-    <title>QNEET - NEET Resource Hub</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-    
-    <!-- PDF.js for PDF viewing -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
-    
-    <!-- Notyf for notifications -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
-    
-    <!-- Main Styles -->
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/dark-theme.css" id="dark-theme-styles">
-    
-    <!-- PWA Manifest -->
-    <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    <title>QNEET - NEET Study Resources</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #facc15;
+            --danger: #f87171;
+            --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            background-color: #f0f2f5;
+            color: var(--dark);
+            line-height: 1.6;
+            padding-bottom: 70px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .search-bar {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border-radius: 30px;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .search-bar input:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+        }
+
+        .search-bar i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .user-actions button {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .user-actions button:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(63, 55, 201, 0.9)), url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3') no-repeat center center/cover;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.4);
+        }
+
+        /* Section Navigation */
+        .section-nav {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .section-btn {
+            background: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--card-shadow);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .section-btn.active, .section-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Resources Section */
+        .resources-section {
+            padding: 20px 0;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .section-title h2 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+
+        .section-title i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Resource Cards */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 160px;
+            background: linear-gradient(45deg, #4361ee, #4cc9f0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .card-content {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--secondary);
+        }
+
+        .card-content p {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: rgba(67, 97, 238, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .preview-btn, .download-btn {
+            flex: 1;
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .preview-btn {
+            background: rgba(76, 201, 240, 0.15);
+            color: var(--accent);
+        }
+
+        .preview-btn:hover {
+            background: rgba(76, 201, 240, 0.25);
+        }
+
+        .download-btn {
+            background: rgba(67, 97, 238, 0.15);
+            color: var(--primary);
+        }
+
+        .download-btn:hover {
+            background: rgba(67, 97, 238, 0.25);
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 12px 0;
+            box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.1);
+            z-index: 100;
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+            text-decoration: none;
+            color: #777;
+            font-size: 0.8rem;
+            transition: var(--transition);
+            padding: 5px 15px;
+            border-radius: 10px;
+        }
+
+        .nav-item.active, .nav-item:hover {
+            color: var(--primary);
+            background: rgba(67, 97, 238, 0.1);
+        }
+
+        .nav-item i {
+            font-size: 1.3rem;
+        }
+
+        /* Modal for PDF Preview */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            width: 90%;
+            max-width: 900px;
+            height: 80vh;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-header {
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .pdf-container {
+            width: 100%;
+            height: calc(100% - 60px);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            color: var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+                margin: 0;
+                width: 100%;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+            
+            .section-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5rem;
+            }
+            
+            .hero {
+                padding: 30px 15px;
+            }
+            
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
-    <!-- Notification Container -->
-    <div id="notification-container"></div>
-    
-    <!-- Main App Container -->
-    <div class="flex flex-col min-h-screen">
-        <!-- Header -->
-        <header class="bg-white dark:bg-slate-800 shadow-md py-4 px-6 flex items-center justify-between sticky top-0 z-50">
-            <div class="flex items-center">
-                <button id="menu-toggle" class="mr-4 md:hidden">
-                    <i data-lucide="menu" class="w-6 h-6"></i>
-                </button>
-                <div class="flex items-center">
-                    <div class="bg-blue-500 text-white font-bold rounded-lg w-10 h-10 flex items-center justify-center mr-3">Q</div>
-                    <h1 class="text-xl font-bold font-poppins">QNEET</h1>
-                </div>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-book-medical"></i>
+                <h1>QNEET</h1>
             </div>
-            
-            <div class="flex-1 max-w-2xl mx-4 hidden md:block">
-                <div class="relative">
-                    <input type="text" id="search-bar" placeholder="Search resources..." class="w-full py-2 px-4 pl-10 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <i data-lucide="search" class="w-5 h-5 absolute left-3 top-2.5 text-slate-400"></i>
-                </div>
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Search for study materials...">
             </div>
-            
-            <div class="flex items-center space-x-4">
-                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
-                    <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
-                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
-                </button>
-                <button id="settings-btn" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
-                    <i data-lucide="settings" class="w-5 h-5"></i>
-                </button>
-                <button id="bookmarks-btn" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 relative">
-                    <i data-lucide="bookmark" class="w-5 h-5"></i>
-                    <span id="bookmark-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
-                </button>
-            </div>
-        </header>
-        
-        <!-- Mobile Search Bar -->
-        <div class="md:hidden bg-white dark:bg-slate-800 px-4 py-3">
-            <div class="relative">
-                <input type="text" id="mobile-search" placeholder="Search resources..." class="w-full py-2 px-4 pl-10 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <i data-lucide="search" class="w-5 h-5 absolute left-3 top-2.5 text-slate-400"></i>
+            <div class="user-actions">
+                <button><i class="fas fa-bell"></i></button>
+                <button><i class="fas fa-user"></i></button>
             </div>
         </div>
-        
-        <!-- Main Content -->
-        <div class="flex flex-1">
-            <!-- Sidebar -->
-            <aside id="sidebar" class="sidebar fixed md:static w-64 bg-white dark:bg-slate-800 h-[calc(100vh-4rem)] md:h-auto z-40 overflow-y-auto transform transition-transform duration-300 ease-in-out">
-                <div class="p-4 border-b border-slate-200 dark:border-slate-700">
-                    <h2 class="text-lg font-semibold">Categories</h2>
-                </div>
-                <nav class="p-2">
-                    <ul>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 active bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400" data-category="dashboard">
-                                <i data-lucide="home" class="w-5 h-5 mr-3"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="short-notes">
-                                <i data-lucide="file-text" class="w-5 h-5 mr-3"></i>
-                                <span>Short Notes</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="books">
-                                <i data-lucide="book-open" class="w-5 h-5 mr-3"></i>
-                                <span>Best Books (PDFs)</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="question-banks">
-                                <i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>
-                                <span>Question Banks</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="pyqs">
-                                <i data-lucide="archive" class="w-5 h-5 mr-3"></i>
-                                <span>PYQs</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="formula-sheets">
-                                <i data-lucide="file" class="w-5 h-5 mr-3"></i>
-                                <span>Formula Sheets</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="mindmaps">
-                                <i data-lucide="git-branch" class="w-5 h-5 mr-3"></i>
-                                <span>Revision Mindmaps</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="strategy-guides">
-                                <i data-lucide="target" class="w-5 h-5 mr-3"></i>
-                                <span>Strategy Guides</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="other">
-                                <i data-lucide="more-horizontal" class="w-5 h-5 mr-3"></i>
-                                <span>Other Resources</span>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-                
-                <div class="p-4 border-t border-slate-200 dark:border-slate-700 mt-4">
-                    <h3 class="font-semibold mb-2">Quick Filters</h3>
-                    <div class="space-y-2">
-                        <div class="flex items-center">
-                            <input type="checkbox" id="filter-physics" class="filter-checkbox mr-2" data-filter="physics">
-                            <label for="filter-physics">Physics</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="filter-chemistry" class="filter-checkbox mr-2" data-filter="chemistry">
-                            <label for="filter-chemistry">Chemistry</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="filter-biology" class="filter-checkbox mr-2" data-filter="biology">
-                            <label for="filter-biology">Biology</label>
-                        </div>
-                        <div class="flex items-center">
-                            <input type="checkbox" id="filter-favorites" class="filter-checkbox mr-2" data-filter="favorites">
-                            <label for="filter-favorites">Favorites</label>
-                        </div>
-                    </div>
-                </div>
-            </aside>
-            
-            <!-- Overlay for mobile sidebar -->
-            <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
-            
-            <!-- Main Content Area -->
-            <main class="flex-1 p-4 md:p-6">
-                <!-- Dashboard View -->
-                <section id="dashboard-view">
-                    <div class="mb-8">
-                        <h1 class="text-2xl md:text-3xl font-bold font-poppins mb-2">Your one-stop NEET Resource Hub</h1>
-                        <p class="text-slate-600 dark:text-slate-400">Access all your study materials in one place</p>
-                    </div>
-                    
-                    <!-- Category Cards -->
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="short-notes">
-                            <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                                <i data-lucide="file-text" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
-                            </div>
-                            <h3 class="font-semibold">Short Notes</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">24 resources</p>
-                        </div>
-                        
-                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="books">
-                            <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                                <i data-lucide="book-open" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
-                            </div>
-                            <h3 class="font-semibold">Best Books</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">18 resources</p>
-                        </div>
-                        
-                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="question-banks">
-                            <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                                <i data-lucide="help-circle" class="w-6 h-6 text-orange-600 dark:text-orange-400"></i>
-                            </div>
-                            <h3 class="font-semibold">Question Banks</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">32 resources</p>
-                        </div>
-                        
-                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="pyqs">
-                            <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
-                                <i data-lucide="archive" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
-                            </div>
-                            <h3 class="font-semibold">PYQs</h3>
-                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">15 resources</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Recent Resources -->
-                    <div class="mb-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h2 class="text-xl font-semibold">Recent Resources</h2>
-                            <a href="#" class="text-blue-600 dark:text-blue-400 text-sm">View All</a>
-                        </div>
-                        
-                        <div id="resource-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                            <!-- Resource cards will be dynamically inserted here -->
-                        </div>
-                    </div>
-                </section>
-                
-                <!-- Resource Viewer -->
-                <section id="resource-viewer" class="hidden">
-                    <div class="flex justify-between items-center mb-6">
-                        <button id="back-to-dashboard" class="flex items-center text-blue-600 dark:text-blue-400">
-                            <i data-lucide="arrow-left" class="w-5 h-5 mr-1"></i> Back to Dashboard
-                        </button>
-                        <div class="flex space-x-2">
-                            <button id="download-resource" class="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg flex items-center">
-                                <i data-lucide="download" class="w-4 h-4 mr-2"></i> Download
-                            </button>
-                            <button id="preview-resource" class="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
-                                <i data-lucide="eye" class="w-4 h-4 mr-2"></i> Preview
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 mb-6">
-                        <div class="flex flex-col md:flex-row">
-                            <div class="md:w-1/3 mb-6 md:mb-0 md:pr-6">
-                                <div id="resource-thumbnail" class="h-64 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-lg mb-4"></div>
-                                <h2 id="resource-title" class="text-2xl font-bold mb-2">Physics Formula Sheet</h2>
-                                <p id="resource-description" class="text-slate-600 dark:text-slate-400 mb-4">Comprehensive formula sheet for NEET Physics covering all important equations and concepts.</p>
-                                
-                                <div id="resource-tags" class="flex flex-wrap gap-2 mb-4">
-                                    <!-- Tags will be inserted here -->
-                                </div>
-                                
-                                <div class="flex items-center text-sm text-slate-500 dark:text-slate-400 mb-2">
-                                    <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
-                                    <span id="resource-date">Uploaded: 12 March 2023</span>
-                                </div>
-                                
-                                <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
-                                    <i data-lucide="file" class="w-4 h-4 mr-2"></i>
-                                    <span id="resource-type">PDF (2.4 MB)</span>
-                                </div>
-                            </div>
-                            
-                            <div class="md:w-2/3">
-                                <div id="pdf-viewer" class="pdf-viewer bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden">
-                                    <div class="h-full flex items-center justify-center">
-                                        <div class="text-center">
-                                            <i data-lucide="file-text" class="w-16 h-16 text-slate-400 mx-auto mb-4"></i>
-                                            <p class="text-slate-500 dark:text-slate-400 mb-4">PDF Viewer Placeholder</p>
-                                            <button id="preview-pdf-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
-                                                <i data-lucide="eye" class="w-4 h-4 mr-2 inline"></i> Preview PDF
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Notes Section -->
-                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6">
-                        <h3 class="text-xl font-semibold mb-4">Personal Notes</h3>
-                        <div class="mb-4">
-                            <textarea id="notes-textarea" class="w-full h-32 p-4 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Add your personal notes here..."></textarea>
-                        </div>
-                        <div class="flex justify-end">
-                            <button id="save-notes" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Save Notes</button>
-                        </div>
-                        
-                        <div class="mt-6">
-                            <h4 class="font-medium mb-3">Previous Notes</h4>
-                            <div id="notes-container" class="space-y-3">
-                                <!-- Notes will be inserted here -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Your Ultimate NEET Preparation Hub</h2>
+        <p>Access concise notes, best books, practice papers, and all essential resources for NEET preparation in one place.</p>
+        <button class="cta-button">Explore Resources</button>
+    </section>
+
+    <!-- Section Navigation -->
+    <div class="container">
+        <div class="section-nav">
+            <button class="section-btn active"><i class="fas fa-file-alt"></i> Short Notes</button>
+            <button class="section-btn"><i class="fas fa-book"></i> Best Books</button>
+            <button class="section-btn"><i class="fas fa-file-pdf"></i> PDFs</button>
+            <button class="section-btn"><i class="fas fa-graduation-cap"></i> Study Plans</button>
         </div>
     </div>
-    
-    <!-- Settings Modal -->
-    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white dark:bg-slate-800 rounded-xl w-full max-w-md p-6">
-            <div class="flex justify-between items-center mb-4">
-                <h3 class="text-xl font-semibold">Settings</h3>
-                <button id="close-settings" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
-                    <i data-lucide="x" class="w-5 h-5"></i>
-                </button>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-title">
+                <i class="fas fa-file-alt"></i>
+                <h2>Short Notes</h2>
             </div>
-            
-            <div class="space-y-4">
-                <div>
-                    <h4 class="font-medium mb-2">Theme</h4>
-                    <div class="flex space-x-4">
-                        <button id="light-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
-                            <i data-lucide="sun" class="w-5 h-5 mb-1"></i>
-                            <span>Light</span>
-                        </button>
-                        <button id="dark-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
-                            <i data-lucide="moon" class="w-5 h-5 mb-1"></i>
-                            <span>Dark</span>
-                        </button>
-                        <button id="auto-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
-                            <i data-lucide="monitor" class="w-5 h-5 mb-1"></i>
-                            <span>System</span>
-                        </button>
+            <div class="resources-grid">
+                <!-- Resource Card 1 -->
+                <div class="resource-card">
+                    <div class="card-image">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Biology Quick Notes</h3>
+                        <p>Comprehensive notes covering all important topics in Biology for NEET preparation.</p>
+                        <div class="card-tags">
+                            <span class="tag">Biology</span>
+                            <span class="tag">Quick Notes</span>
+                            <span class="tag">NEET 2023</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4 class="font-medium mb-2">Font Size</h4>
-                    <div class="flex space-x-4">
-                        <button id="font-small" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg">Small</button>
-                        <button id="font-medium" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Medium</button>
-                        <button id="font-large" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg">Large</button>
+
+                <!-- Resource Card 2 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #f72585, #b5179e);">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Chemistry Formula Sheet</h3>
+                        <p>All essential formulas and reactions for Physical, Organic, and Inorganic Chemistry.</p>
+                        <div class="card-tags">
+                            <span class="tag">Chemistry</span>
+                            <span class="tag">Formulas</span>
+                            <span class="tag">Revision</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
                     </div>
                 </div>
-                
-                <div>
-                    <h4 class="font-medium mb-2">Data Management</h4>
-                    <div class="space-y-2">
-                        <button id="backup-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center">
-                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
-                            Backup Data
-                        </button>
-                        <button id="restore-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center">
-                            <i data-lucide="upload" class="w-4 h-4 mr-2"></i>
-                            Restore Data
-                        </button>
-                        <button id="clear-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center text-red-600 dark:text-red-400">
-                            <i data-lucide="trash" class="w-4 h-4 mr-2"></i>
-                            Clear All Data
-                        </button>
+
+                <!-- Resource Card 3 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #4cc9f0, #4895ef);">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Physics Concepts</h3>
+                        <p>Key concepts and problem-solving techniques for all major Physics topics in NEET.</p>
+                        <div class="card-tags">
+                            <span class="tag">Physics</span>
+                            <span class="tag">Concepts</span>
+                            <span class="tag">Problems</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Resource Card 4 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #f8961e, #f3722c);">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Biology Diagrams</h3>
+                        <p>Important diagrams with labels for quick revision of Biology concepts.</p>
+                        <div class="card-tags">
+                            <span class="tag">Biology</span>
+                            <span class="tag">Diagrams</span>
+                            <span class="tag">Labels</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Books Section -->
+    <section class="resources-section">
+        <div class="container">
+            <div class="section-title">
+                <i class="fas fa-book"></i>
+                <h2>Best Books</h2>
+            </div>
+            <div class="resources-grid">
+                <!-- Book Card 1 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #2a9d8f, #264653);">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>NCERT Biology Class 11 & 12</h3>
+                        <p>Essential textbook for NEET Biology preparation. Covers all fundamental concepts.</p>
+                        <div class="card-tags">
+                            <span class="tag">NCERT</span>
+                            <span class="tag">Biology</span>
+                            <span class="tag">Textbook</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Card 2 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #e9c46a, #f4a261);">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Physical Chemistry by O.P. Tandon</h3>
+                        <p>Comprehensive guide to Physical Chemistry with detailed explanations and problems.</p>
+                        <div class="card-tags">
+                            <span class="tag">Chemistry</span>
+                            <span class="tag">O.P. Tandon</span>
+                            <span class="tag">Reference</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Card 3 -->
+                <div class="resource-card">
+                    <div class="card-image" style="background: linear-gradient(45deg, #e76f51, #f4a261);">
+                        <i class="fas fa-ruler"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3>Concepts of Physics by H.C. Verma</h3>
+                        <p>Best book for understanding Physics concepts and problem-solving for NEET.</p>
+                        <div class="card-tags">
+                            <span class="tag">Physics</span>
+                            <span class="tag">H.C. Verma</span>
+                            <span class="tag">Problems</span>
+                        </div>
+                        <div class="card-actions">
+                            <button class="preview-btn"><i class="fas fa-eye"></i> Preview</button>
+                            <button class="download-btn"><i class="fas fa-download"></i> Download</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PDF Viewer Modal -->
+    <div class="modal" id="pdfModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Biology Quick Notes</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="pdf-container">
+                <iframe src="https://drive.google.com/file/d/1example/view?usp=sharing" width="100%" height="100%" frameborder="0"></iframe>
             </div>
         </div>
     </div>
-    
-    <!-- Download Manager -->
-    <div id="download-manager" class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg w-80 p-4 hidden">
-        <div class="flex justify-between items-center mb-2">
-            <h4 class="font-semibold">Download Manager</h4>
-            <button id="close-downloads" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
-                <i data-lucide="x" class="w-4 h-4"></i>
-            </button>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-book"></i>
+            <span>Notes</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-file-pdf"></i>
+            <span>PDFs</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-bookmark"></i>
+            <span>Books</span>
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fas fa-user"></i>
+            <span>Profile</span>
+        </a>
+    </nav>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3>QNEET - Your NEET Success Partner</h3>
+            <p>Providing quality study materials and resources for NEET aspirants since 2023.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2023 QNEET. All rights reserved.</p>
         </div>
-        
-        <div id="downloads-container" class="space-y-3">
-            <!-- Download items will be inserted here -->
-        </div>
-    </div>
-    
-    <!-- JavaScript Modules -->
-    <script type="module" src="js/main.js"></script>
-    <script type="module" src="js/pdf-viewer.js"></script>
-    <script type="module" src="js/storage.js"></script>
-    <script type="module" src="js/utils.js"></script>
+    </footer>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('pdfModal');
+        const previewButtons = document.querySelectorAll('.preview-btn');
+        const closeModal = document.querySelector('.close-modal');
+
+        previewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Section navigation
+        const sectionButtons = document.querySelectorAll('.section-btn');
+        sectionButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                sectionButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+            });
+        });
+
+        // Bottom navigation
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                navItems.forEach(nav => nav.classList.remove('active'));
+                item.classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
-</html>
+    </html>
