@@ -1,0 +1,136 @@
+{
+  "name": "QNEET - NEET Resource Hub",
+  "short_name": "QNEET",
+  "description": "Your one-stop solution for NEET preparation resources",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#3b82f6",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/assets/screenshots/dashboard.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/assets/screenshots/resource-view.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide"
+    },
+    {
+      "src": "/assets/screenshots/mobile-dashboard.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/assets/screenshots/mobile-resource.png",
+      "sizes": "720x1280",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Home",
+      "description": "Go to your QNEET dashboard",
+      "url": "/",
+      "icons": [
+        {
+          "src": "/assets/icons/home-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Bookmarks",
+      "short_name": "Saved",
+      "description": "View your saved resources",
+      "url": "/#bookmarks",
+      "icons": [
+        {
+          "src": "/assets/icons/bookmark-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Search",
+      "short_name": "Search",
+      "description": "Search for NEET resources",
+      "url": "/#search",
+      "icons": [
+        {
+          "src": "/assets/icons/search-96.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "categories": [
+    "education",
+    "books",
+    "productivity"
+  ],
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "display_override": ["window-controls-overlay"],
+  "handle_links": "auto",
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "id": "qneet-app",
+  "scope": "/",
+  "theme_color_dark": "#1e40af",
+  "edge_side_panel": {
+    "preferred_width": 400
+  }
+}

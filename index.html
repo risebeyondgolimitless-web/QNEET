@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="QNEET - Your one-stop NEET Resource Hub">
+    <meta name="theme-color" content="#3b82f6">
+    <title>QNEET - NEET Resource Hub</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- PDF.js for PDF viewing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <!-- Notyf for notifications -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.js"></script>
+    
+    <!-- Main Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/dark-theme.css" id="dark-theme-styles">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100">
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+    
+    <!-- Main App Container -->
+    <div class="flex flex-col min-h-screen">
+        <!-- Header -->
+        <header class="bg-white dark:bg-slate-800 shadow-md py-4 px-6 flex items-center justify-between sticky top-0 z-50">
+            <div class="flex items-center">
+                <button id="menu-toggle" class="mr-4 md:hidden">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+                <div class="flex items-center">
+                    <div class="bg-blue-500 text-white font-bold rounded-lg w-10 h-10 flex items-center justify-center mr-3">Q</div>
+                    <h1 class="text-xl font-bold font-poppins">QNEET</h1>
+                </div>
+            </div>
+            
+            <div class="flex-1 max-w-2xl mx-4 hidden md:block">
+                <div class="relative">
+                    <input type="text" id="search-bar" placeholder="Search resources..." class="w-full py-2 px-4 pl-10 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <i data-lucide="search" class="w-5 h-5 absolute left-3 top-2.5 text-slate-400"></i>
+                </div>
+            </div>
+            
+            <div class="flex items-center space-x-4">
+                <button id="theme-toggle" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <i data-lucide="sun" class="w-5 h-5 dark:hidden"></i>
+                    <i data-lucide="moon" class="w-5 h-5 hidden dark:block"></i>
+                </button>
+                <button id="settings-btn" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700">
+                    <i data-lucide="settings" class="w-5 h-5"></i>
+                </button>
+                <button id="bookmarks-btn" class="p-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 relative">
+                    <i data-lucide="bookmark" class="w-5 h-5"></i>
+                    <span id="bookmark-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">0</span>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Mobile Search Bar -->
+        <div class="md:hidden bg-white dark:bg-slate-800 px-4 py-3">
+            <div class="relative">
+                <input type="text" id="mobile-search" placeholder="Search resources..." class="w-full py-2 px-4 pl-10 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <i data-lucide="search" class="w-5 h-5 absolute left-3 top-2.5 text-slate-400"></i>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="flex flex-1">
+            <!-- Sidebar -->
+            <aside id="sidebar" class="sidebar fixed md:static w-64 bg-white dark:bg-slate-800 h-[calc(100vh-4rem)] md:h-auto z-40 overflow-y-auto transform transition-transform duration-300 ease-in-out">
+                <div class="p-4 border-b border-slate-200 dark:border-slate-700">
+                    <h2 class="text-lg font-semibold">Categories</h2>
+                </div>
+                <nav class="p-2">
+                    <ul>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 active bg-blue-50 dark:bg-slate-700 text-blue-600 dark:text-blue-400" data-category="dashboard">
+                                <i data-lucide="home" class="w-5 h-5 mr-3"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="short-notes">
+                                <i data-lucide="file-text" class="w-5 h-5 mr-3"></i>
+                                <span>Short Notes</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="books">
+                                <i data-lucide="book-open" class="w-5 h-5 mr-3"></i>
+                                <span>Best Books (PDFs)</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="question-banks">
+                                <i data-lucide="help-circle" class="w-5 h-5 mr-3"></i>
+                                <span>Question Banks</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="pyqs">
+                                <i data-lucide="archive" class="w-5 h-5 mr-3"></i>
+                                <span>PYQs</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="formula-sheets">
+                                <i data-lucide="file" class="w-5 h-5 mr-3"></i>
+                                <span>Formula Sheets</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="mindmaps">
+                                <i data-lucide="git-branch" class="w-5 h-5 mr-3"></i>
+                                <span>Revision Mindmaps</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="strategy-guides">
+                                <i data-lucide="target" class="w-5 h-5 mr-3"></i>
+                                <span>Strategy Guides</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link flex items-center p-3 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700" data-category="other">
+                                <i data-lucide="more-horizontal" class="w-5 h-5 mr-3"></i>
+                                <span>Other Resources</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                
+                <div class="p-4 border-t border-slate-200 dark:border-slate-700 mt-4">
+                    <h3 class="font-semibold mb-2">Quick Filters</h3>
+                    <div class="space-y-2">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="filter-physics" class="filter-checkbox mr-2" data-filter="physics">
+                            <label for="filter-physics">Physics</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="filter-chemistry" class="filter-checkbox mr-2" data-filter="chemistry">
+                            <label for="filter-chemistry">Chemistry</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="filter-biology" class="filter-checkbox mr-2" data-filter="biology">
+                            <label for="filter-biology">Biology</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input type="checkbox" id="filter-favorites" class="filter-checkbox mr-2" data-filter="favorites">
+                            <label for="filter-favorites">Favorites</label>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            
+            <!-- Overlay for mobile sidebar -->
+            <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-30 hidden md:hidden"></div>
+            
+            <!-- Main Content Area -->
+            <main class="flex-1 p-4 md:p-6">
+                <!-- Dashboard View -->
+                <section id="dashboard-view">
+                    <div class="mb-8">
+                        <h1 class="text-2xl md:text-3xl font-bold font-poppins mb-2">Your one-stop NEET Resource Hub</h1>
+                        <p class="text-slate-600 dark:text-slate-400">Access all your study materials in one place</p>
+                    </div>
+                    
+                    <!-- Category Cards -->
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="short-notes">
+                            <div class="bg-blue-100 dark:bg-blue-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                                <i data-lucide="file-text" class="w-6 h-6 text-blue-600 dark:text-blue-400"></i>
+                            </div>
+                            <h3 class="font-semibold">Short Notes</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">24 resources</p>
+                        </div>
+                        
+                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="books">
+                            <div class="bg-green-100 dark:bg-green-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                                <i data-lucide="book-open" class="w-6 h-6 text-green-600 dark:text-green-400"></i>
+                            </div>
+                            <h3 class="font-semibold">Best Books</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">18 resources</p>
+                        </div>
+                        
+                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="question-banks">
+                            <div class="bg-orange-100 dark:bg-orange-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                                <i data-lucide="help-circle" class="w-6 h-6 text-orange-600 dark:text-orange-400"></i>
+                            </div>
+                            <h3 class="font-semibold">Question Banks</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">32 resources</p>
+                        </div>
+                        
+                        <div class="category-card bg-white dark:bg-slate-800 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow cursor-pointer" data-category="pyqs">
+                            <div class="bg-purple-100 dark:bg-purple-900/30 w-12 h-12 rounded-lg flex items-center justify-center mb-3">
+                                <i data-lucide="archive" class="w-6 h-6 text-purple-600 dark:text-purple-400"></i>
+                            </div>
+                            <h3 class="font-semibold">PYQs</h3>
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">15 resources</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Recent Resources -->
+                    <div class="mb-6">
+                        <div class="flex justify-between items-center mb-4">
+                            <h2 class="text-xl font-semibold">Recent Resources</h2>
+                            <a href="#" class="text-blue-600 dark:text-blue-400 text-sm">View All</a>
+                        </div>
+                        
+                        <div id="resource-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <!-- Resource cards will be dynamically inserted here -->
+                        </div>
+                    </div>
+                </section>
+                
+                <!-- Resource Viewer -->
+                <section id="resource-viewer" class="hidden">
+                    <div class="flex justify-between items-center mb-6">
+                        <button id="back-to-dashboard" class="flex items-center text-blue-600 dark:text-blue-400">
+                            <i data-lucide="arrow-left" class="w-5 h-5 mr-1"></i> Back to Dashboard
+                        </button>
+                        <div class="flex space-x-2">
+                            <button id="download-resource" class="bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-4 py-2 rounded-lg flex items-center">
+                                <i data-lucide="download" class="w-4 h-4 mr-2"></i> Download
+                            </button>
+                            <button id="preview-resource" class="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center">
+                                <i data-lucide="eye" class="w-4 h-4 mr-2"></i> Preview
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6 mb-6">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="md:w-1/3 mb-6 md:mb-0 md:pr-6">
+                                <div id="resource-thumbnail" class="h-64 bg-gradient-to-r from-blue-400 to-indigo-600 rounded-lg mb-4"></div>
+                                <h2 id="resource-title" class="text-2xl font-bold mb-2">Physics Formula Sheet</h2>
+                                <p id="resource-description" class="text-slate-600 dark:text-slate-400 mb-4">Comprehensive formula sheet for NEET Physics covering all important equations and concepts.</p>
+                                
+                                <div id="resource-tags" class="flex flex-wrap gap-2 mb-4">
+                                    <!-- Tags will be inserted here -->
+                                </div>
+                                
+                                <div class="flex items-center text-sm text-slate-500 dark:text-slate-400 mb-2">
+                                    <i data-lucide="calendar" class="w-4 h-4 mr-2"></i>
+                                    <span id="resource-date">Uploaded: 12 March 2023</span>
+                                </div>
+                                
+                                <div class="flex items-center text-sm text-slate-500 dark:text-slate-400">
+                                    <i data-lucide="file" class="w-4 h-4 mr-2"></i>
+                                    <span id="resource-type">PDF (2.4 MB)</span>
+                                </div>
+                            </div>
+                            
+                            <div class="md:w-2/3">
+                                <div id="pdf-viewer" class="pdf-viewer bg-slate-100 dark:bg-slate-700 rounded-lg overflow-hidden">
+                                    <div class="h-full flex items-center justify-center">
+                                        <div class="text-center">
+                                            <i data-lucide="file-text" class="w-16 h-16 text-slate-400 mx-auto mb-4"></i>
+                                            <p class="text-slate-500 dark:text-slate-400 mb-4">PDF Viewer Placeholder</p>
+                                            <button id="preview-pdf-btn" class="bg-blue-600 text-white px-4 py-2 rounded-lg">
+                                                <i data-lucide="eye" class="w-4 h-4 mr-2 inline"></i> Preview PDF
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notes Section -->
+                    <div class="bg-white dark:bg-slate-800 rounded-xl shadow-sm p-6">
+                        <h3 class="text-xl font-semibold mb-4">Personal Notes</h3>
+                        <div class="mb-4">
+                            <textarea id="notes-textarea" class="w-full h-32 p-4 border border-slate-300 dark:border-slate-600 rounded-lg bg-white dark:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Add your personal notes here..."></textarea>
+                        </div>
+                        <div class="flex justify-end">
+                            <button id="save-notes" class="bg-blue-600 text-white px-4 py-2 rounded-lg">Save Notes</button>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <h4 class="font-medium mb-3">Previous Notes</h4>
+                            <div id="notes-container" class="space-y-3">
+                                <!-- Notes will be inserted here -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+    
+    <!-- Settings Modal -->
+    <div id="settings-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white dark:bg-slate-800 rounded-xl w-full max-w-md p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-semibold">Settings</h3>
+                <button id="close-settings" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <h4 class="font-medium mb-2">Theme</h4>
+                    <div class="flex space-x-4">
+                        <button id="light-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
+                            <i data-lucide="sun" class="w-5 h-5 mb-1"></i>
+                            <span>Light</span>
+                        </button>
+                        <button id="dark-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
+                            <i data-lucide="moon" class="w-5 h-5 mb-1"></i>
+                            <span>Dark</span>
+                        </button>
+                        <button id="auto-theme" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg flex flex-col items-center">
+                            <i data-lucide="monitor" class="w-5 h-5 mb-1"></i>
+                            <span>System</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-2">Font Size</h4>
+                    <div class="flex space-x-4">
+                        <button id="font-small" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg">Small</button>
+                        <button id="font-medium" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">Medium</button>
+                        <button id="font-large" class="flex-1 py-2 border border-slate-300 dark:border-slate-600 rounded-lg">Large</button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-medium mb-2">Data Management</h4>
+                    <div class="space-y-2">
+                        <button id="backup-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center">
+                            <i data-lucide="download" class="w-4 h-4 mr-2"></i>
+                            Backup Data
+                        </button>
+                        <button id="restore-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center">
+                            <i data-lucide="upload" class="w-4 h-4 mr-2"></i>
+                            Restore Data
+                        </button>
+                        <button id="clear-data" class="w-full py-2 text-left px-4 bg-slate-100 dark:bg-slate-700 rounded-lg flex items-center text-red-600 dark:text-red-400">
+                            <i data-lucide="trash" class="w-4 h-4 mr-2"></i>
+                            Clear All Data
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Download Manager -->
+    <div id="download-manager" class="fixed bottom-4 right-4 bg-white dark:bg-slate-800 rounded-lg shadow-lg w-80 p-4 hidden">
+        <div class="flex justify-between items-center mb-2">
+            <h4 class="font-semibold">Download Manager</h4>
+            <button id="close-downloads" class="text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+        
+        <div id="downloads-container" class="space-y-3">
+            <!-- Download items will be inserted here -->
+        </div>
+    </div>
+    
+    <!-- JavaScript Modules -->
+    <script type="module" src="js/main.js"></script>
+    <script type="module" src="js/pdf-viewer.js"></script>
+    <script type="module" src="js/storage.js"></script>
+    <script type="module" src="js/utils.js"></script>
+</body>
+</html>
