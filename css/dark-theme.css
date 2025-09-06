@@ -1,0 +1,561 @@
+/* css/dark-theme.css */
+
+/* Dark Theme Variables */
+:root.dark {
+    /* Primary Colors */
+    --primary-50: #172554;
+    --primary-100: #1e3a8a;
+    --primary-200: #2563eb;
+    --primary-300: #3b82f6;
+    --primary-400: #60a5fa;
+    --primary-500: #93c5fd;
+    --primary-600: #bfdbfe;
+    --primary-700: #dbeafe;
+    --primary-800: #eff6ff;
+    --primary-900: #f0f9ff;
+    
+    /* Secondary Colors */
+    --secondary-50: #052e16;
+    --secondary-100: #064e3b;
+    --secondary-200: #047857;
+    --secondary-300: #059669;
+    --secondary-400: #10b981;
+    --secondary-500: #34d399;
+    --secondary-600: #6ee7b7;
+    --secondary-700: #a7f3d0;
+    --secondary-800: #d1fae5;
+    --secondary-900: #ecfdf5;
+    
+    /* Accent Colors */
+    --accent-50: #431407;
+    --accent-100: #7c2d12;
+    --accent-200: #c2410c;
+    --accent-300: #ea580c;
+    --accent-400: #f97316;
+    --accent-500: #fb923c;
+    --accent-600: #fdba74;
+    --accent-700: #fed7aa;
+    --accent-800: #ffedd5;
+    --accent-900: #fff7ed;
+    
+    /* Neutral Colors */
+    --white: #0f172a; /* Dark background */
+    --gray-50: #1e293b; /* Card background */
+    --gray-100: #334155; /* Borders and dividers */
+    --gray-200: #475569; /* Muted text */
+    --gray-300: #64748b; /* Secondary text */
+    --gray-400: #94a3b8; /* Placeholder text */
+    --gray-500: #cbd5e1; /* Primary text */
+    --gray-600: #e2e8f0; /* Heading text */
+    --gray-700: #f1f5f9; /* Emphasized text */
+    --gray-800: #f8fafc; /* Highlight text */
+    --gray-900: #ffffff; /* Contrast text */
+    --black: #ffffff; /* Contrast elements */
+    
+    /* Semantic Colors */
+    --success: var(--secondary-400);
+    --warning: var(--accent-400);
+    --error: #f87171;
+    --info: var(--primary-400);
+    
+    /* Backgrounds */
+    --bg-primary: var(--gray-900);
+    --bg-secondary: var(--gray-800);
+    --bg-tertiary: var(--gray-700);
+    --bg-card: var(--gray-800);
+    --bg-overlay: rgba(15, 23, 42, 0.8);
+    
+    /* Borders */
+    --border-color: var(--gray-700);
+    --border-color-light: var(--gray-600);
+    --border-color-dark: var(--gray-800);
+}
+
+/* Dark Theme Base Styles */
+:root.dark {
+    color-scheme: dark;
+}
+
+:root.dark body {
+    background-color: var(--white);
+    color: var(--gray-300);
+}
+
+/* Typography in Dark Mode */
+:root.dark h1,
+:root.dark h2,
+:root.dark h3,
+:root.dark h4,
+:root.dark h5,
+:root.dark h6 {
+    color: var(--gray-100);
+}
+
+:root.dark p {
+    color: var(--gray-300);
+}
+
+:root.dark a {
+    color: var(--primary-400);
+}
+
+:root.dark a:hover {
+    color: var(--primary-300);
+}
+
+/* Form Controls in Dark Mode */
+:root.dark .form-control {
+    background-color: var(--gray-700);
+    color: var(--gray-100);
+    border-color: var(--gray-600);
+}
+
+:root.dark .form-control:focus {
+    background-color: var(--gray-700);
+    color: var(--gray-100);
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+:root.dark .form-label {
+    color: var(--gray-200);
+}
+
+:root.dark .form-control::placeholder {
+    color: var(--gray-500);
+}
+
+/* Buttons in Dark Mode */
+:root.dark .btn-primary {
+    background-color: var(--primary-600);
+    color: var(--gray-900);
+}
+
+:root.dark .btn-primary:hover:not(:disabled) {
+    background-color: var(--primary-500);
+}
+
+:root.dark .btn-secondary {
+    background-color: var(--secondary-600);
+    color: var(--gray-900);
+}
+
+:root.dark .btn-secondary:hover:not(:disabled) {
+    background-color: var(--secondary-500);
+}
+
+:root.dark .btn-outline {
+    background-color: transparent;
+    border-color: var(--gray-600);
+    color: var(--gray-300);
+}
+
+:root.dark .btn-outline:hover:not(:disabled) {
+    background-color: var(--gray-700);
+    border-color: var(--gray-500);
+}
+
+:root.dark .btn-icon:hover {
+    background-color: var(--gray-700);
+}
+
+/* Cards in Dark Mode */
+:root.dark .card {
+    background-color: var(--gray-800);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .card-header {
+    border-bottom-color: var(--gray-700);
+}
+
+:root.dark .card-footer {
+    border-top-color: var(--gray-700);
+}
+
+/* Badges in Dark Mode */
+:root.dark .badge-primary {
+    background-color: var(--primary-900);
+    color: var(--primary-200);
+}
+
+:root.dark .badge-secondary {
+    background-color: var(--secondary-900);
+    color: var(--secondary-200);
+}
+
+:root.dark .badge-accent {
+    background-color: var(--accent-900);
+    color: var(--accent-200);
+}
+
+:root.dark .badge-success {
+    background-color: #064e3b;
+    color: var(--secondary-300);
+}
+
+:root.dark .badge-warning {
+    background-color: #7c2d12;
+    color: var(--accent-300);
+}
+
+:root.dark .badge-error {
+    background-color: #7f1d1d;
+    color: #fca5a5;
+}
+
+/* Alerts in Dark Mode */
+:root.dark .alert-success {
+    color: var(--secondary-200);
+    background-color: var(--secondary-950);
+    border-color: var(--secondary-800);
+}
+
+:root.dark .alert-warning {
+    color: var(--accent-200);
+    background-color: var(--accent-950);
+    border-color: var(--accent-800);
+}
+
+:root.dark .alert-error {
+    color: #fecaca;
+    background-color: #7f1d1d;
+    border-color: #fecaca;
+}
+
+:root.dark .alert-info {
+    color: var(--primary-200);
+    background-color: var(--primary-950);
+    border-color: var(--primary-800);
+}
+
+/* Modals in Dark Mode */
+:root.dark .modal-content {
+    background-color: var(--gray-800);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+/* Progress Bars in Dark Mode */
+:root.dark .progress {
+    background-color: var(--gray-700);
+}
+
+:root.dark .progress-bar {
+    background-color: var(--primary-500);
+}
+
+/* Tags in Dark Mode */
+:root.dark .tag {
+    background-color: var(--gray-700);
+    color: var(--gray-200);
+}
+
+:root.dark .tag:hover {
+    background-color: var(--primary-600);
+    color: var(--gray-900);
+}
+
+/* Resource Cards in Dark Mode */
+:root.dark .resource-card {
+    background-color: var(--gray-800);
+}
+
+:root.dark .resource-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+}
+
+/* PDF Viewer in Dark Mode */
+:root.dark .pdf-viewer {
+    background-color: var(--gray-900);
+}
+
+:root.dark .pdf-controls {
+    background-color: var(--gray-800);
+    border-top-color: var(--gray-700);
+}
+
+:root.dark .pdf-prev,
+:root.dark .pdf-next,
+:root.dark .pdf-zoom-in,
+:root.dark .pdf-zoom-out {
+    background-color: var(--gray-700);
+    color: var(--gray-200);
+}
+
+:root.dark .pdf-prev:hover,
+:root.dark .pdf-next:hover,
+:root.dark .pdf-zoom-in:hover,
+:root.dark .pdf-zoom-out:hover {
+    background-color: var(--gray-600);
+}
+
+:root.dark .pdf-page-info {
+    color: var(--gray-300);
+}
+
+/* Navigation Links in Dark Mode */
+:root.dark .nav-link {
+    color: var(--gray-300);
+}
+
+:root.dark .nav-link:hover {
+    background-color: var(--gray-700);
+}
+
+:root.dark .nav-link.active {
+    background-color: var(--gray-700);
+    color: var(--primary-400);
+}
+
+/* Sidebar in Dark Mode */
+:root.dark .sidebar {
+    background-color: var(--gray-900);
+}
+
+:root.dark .sidebar .border-b {
+    border-bottom-color: var(--gray-800);
+}
+
+:root.dark .sidebar .border-t {
+    border-top-color: var(--gray-800);
+}
+
+/* Header in Dark Mode */
+:root.dark header {
+    background-color: var(--gray-900);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px -1px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .search-bar,
+:root.dark .mobile-search {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    color: var(--gray-200);
+}
+
+:root.dark .search-bar::placeholder,
+:root.dark .mobile-search::placeholder {
+    color: var(--gray-500);
+}
+
+:root.dark .theme-toggle:hover,
+:root.dark .settings-btn:hover,
+:root.dark .bookmarks-btn:hover {
+    background-color: var(--gray-800);
+}
+
+/* Category Cards in Dark Mode */
+:root.dark .category-card {
+    background-color: var(--gray-800);
+}
+
+:root.dark .category-card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .category-card .bg-blue-100 {
+    background-color: rgba(59, 130, 246, 0.2);
+}
+
+:root.dark .category-card .bg-green-100 {
+    background-color: rgba(34, 197, 94, 0.2);
+}
+
+:root.dark .category-card .bg-orange-100 {
+    background-color: rgba(249, 115, 22, 0.2);
+}
+
+:root.dark .category-card .bg-purple-100 {
+    background-color: rgba(192, 132, 252, 0.2);
+}
+
+/* Notes Section in Dark Mode */
+:root.dark #notes-textarea {
+    background-color: var(--gray-800);
+    border-color: var(--gray-700);
+    color: var(--gray-200);
+}
+
+:root.dark #notes-textarea:focus {
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+:root.dark #notes-container .bg-slate-50 {
+    background-color: var(--gray-700);
+}
+
+:root.dark #notes-container .text-slate-500 {
+    color: var(--gray-400);
+}
+
+/* Download Manager in Dark Mode */
+:root.dark #download-manager {
+    background-color: var(--gray-800);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+}
+
+:root.dark .downloads-container .bg-slate-200 {
+    background-color: var(--gray-700);
+}
+
+/* Settings Modal in Dark Mode */
+:root.dark #settings-modal .bg-white {
+    background-color: var(--gray-800);
+}
+
+:root.dark #settings-modal .border {
+    border-color: var(--gray-700);
+}
+
+:root.dark #settings-modal button:not(.bg-blue-100) {
+    background-color: var(--gray-700);
+    color: var(--gray-200);
+}
+
+:root.dark #settings-modal button:not(.bg-blue-100):hover {
+    background-color: var(--gray-600);
+}
+
+:root.dark #settings-modal .text-red-600 {
+    color: #f87171;
+}
+
+/* Scrollbars in Dark Mode */
+:root.dark ::-webkit-scrollbar-track {
+    background: var(--gray-900);
+}
+
+:root.dark ::-webkit-scrollbar-thumb {
+    background: var(--gray-700);
+}
+
+:root.dark ::-webkit-scrollbar-thumb:hover {
+    background: var(--gray-600);
+}
+
+/* Focus Styles in Dark Mode */
+:root.dark .focus\:ring-primary:focus {
+    --tw-ring-color: rgba(147, 197, 253, var(--tw-ring-opacity));
+}
+
+:root.dark .focus\:ring-primary-500:focus {
+    --tw-ring-color: rgba(147, 197, 253, var(--tw-ring-opacity));
+}
+
+/* Loading States in Dark Mode */
+:root.dark .pdf-loading {
+    color: var(--gray-400);
+}
+
+:root.dark .loading-progress {
+    background-color: var(--primary-500);
+}
+
+:root.dark .pdf-error {
+    color: var(--gray-300);
+}
+
+:root.dark .pdf-error i {
+    color: #f87171;
+}
+
+/* Utility Classes for Dark Mode */
+:root.dark .bg-white {
+    background-color: var(--gray-800);
+}
+
+:root.dark .bg-slate-50 {
+    background-color: var(--gray-800);
+}
+
+:root.dark .bg-slate-100 {
+    background-color: var(--gray-700);
+}
+
+:root.dark .text-slate-500 {
+    color: var(--gray-400);
+}
+
+:root.dark .text-slate-600 {
+    color: var(--gray-300);
+}
+
+:root.dark .text-slate-700 {
+    color: var(--gray-200);
+}
+
+:root.dark .text-slate-900 {
+    color: var(--gray-100);
+}
+
+:root.dark .border-slate-200 {
+    border-color: var(--gray-700);
+}
+
+:root.dark .border-slate-300 {
+    border-color: var(--gray-600);
+}
+
+/* Hover States for Dark Mode */
+:root.dark .hover\:bg-slate-100:hover {
+    background-color: var(--gray-700);
+}
+
+:root.dark .hover\:bg-slate-200:hover {
+    background-color: var(--gray-600);
+}
+
+:root.dark .hover\:text-slate-700:hover {
+    color: var(--gray-200);
+}
+
+:root.dark .hover\:text-blue-600:hover {
+    color: var(--primary-400);
+}
+
+:root.dark .hover\:text-red-600:hover {
+    color: #f87171;
+}
+
+/* Active States for Dark Mode */
+:root.dark .bg-blue-50 {
+    background-color: var(--gray-800);
+}
+
+:root.dark .text-blue-600 {
+    color: var(--primary-400);
+}
+
+/* Special Cases */
+:root.dark .bg-gradient-to-r {
+    background: linear-gradient(to right, var(--primary-700), var(--primary-900));
+}
+
+:root.dark .bg-gradient-to-r.from-blue-400 {
+    background: linear-gradient(to right, var(--primary-600), var(--primary-800));
+}
+
+:root.dark .bg-gradient-to-r.from-green-400 {
+    background: linear-gradient(to right, var(--secondary-600), var(--secondary-800));
+}
+
+:root.dark .bg-gradient-to-r.from-orange-400 {
+    background: linear-gradient(to right, var(--accent-600), var(--accent-800));
+}
+
+:root.dark .bg-gradient-to-r.from-purple-400 {
+    background: linear-gradient(to right, #a78bfa, #7e22ce);
+}
+
+:root.dark .bg-gradient-to-r.from-cyan-400 {
+    background: linear-gradient(to right, #22d3ee, #0891b2);
+}
+
+:root.dark .bg-gradient-to-r.from-lime-400 {
+    background: linear-gradient(to right, #a3e635, #65a30d);
+}
