@@ -1,0 +1,305 @@
+{
+  "categories": [
+    {
+      "id": "dashboard",
+      "name": "Dashboard",
+      "description": "Your personalized NEET resource hub",
+      "icon": "home",
+      "count": 0,
+      "color": "blue",
+      "featured": false,
+      "order": 0
+    },
+    {
+      "id": "short-notes",
+      "name": "Short Notes",
+      "description": "Concise revision notes for quick learning",
+      "icon": "file-text",
+      "count": 28,
+      "color": "blue",
+      "featured": true,
+      "order": 1,
+      "tags": ["revision", "concise", "summary", "quick", "notes"],
+      "resources": [
+        {
+          "id": 1,
+          "title": "Physics Formula Sheet"
+        },
+        {
+          "id": 2,
+          "title": "Organic Chemistry Notes"
+        },
+        {
+          "id": 6,
+          "title": "Chemistry NCERT Summary"
+        },
+        {
+          "id": 9,
+          "title": "Physics Laws and Principles"
+        },
+        {
+          "id": 12,
+          "title": "Chemistry Reaction Mechanisms"
+        }
+      ]
+    },
+    {
+      "id": "books",
+      "name": "Best Books (PDFs)",
+      "description": "Recommended textbooks and reference materials",
+      "icon": "book-open",
+      "count": 22,
+      "color": "green",
+      "featured": true,
+      "order": 2,
+      "tags": ["textbooks", "reference", "pdf", "books", "study"],
+      "resources": [
+        {
+          "id": 15,
+          "title": "NCERT Physics Class 11"
+        },
+        {
+          "id": 16,
+          "title": "NCERT Chemistry Class 12"
+        },
+        {
+          "id": 17,
+          "title": "NCERT Biology Class 11"
+        },
+        {
+          "id": 18,
+          "title": "Objective Physics by DC Pandey"
+        },
+        {
+          "id": 19,
+          "title": "Organic Chemistry by MS Chauhan"
+        }
+      ]
+    },
+    {
+      "id": "question-banks",
+      "name": "Question Banks",
+      "description": "Practice questions and exercise sets",
+      "icon": "help-circle",
+      "count": 36,
+      "color": "orange",
+      "featured": true,
+      "order": 3,
+      "tags": ["practice", "questions", "mcq", "exercises", "problems"],
+      "resources": [
+        {
+          "id": 8,
+          "title": "NEET Chemistry Question Bank"
+        },
+        {
+          "id": 11,
+          "title": "NEET Physics Mock Test 1"
+        },
+        {
+          "id": 20,
+          "title": "Biology Practice Questions"
+        },
+        {
+          "id": 21,
+          "title": "Physics Numerical Problems"
+        },
+        {
+          "id": 22,
+          "title": "Chemistry MCQ Collection"
+        }
+      ]
+    },
+    {
+      "id": "pyqs",
+      "name": "PYQs",
+      "description": "Previous Year Question papers and solutions",
+      "icon": "archive",
+      "count": 18,
+      "color": "purple",
+      "featured": true,
+      "order": 4,
+      "tags": ["previous", "year", "question", "papers", "solutions"],
+      "resources": [
+        {
+          "id": 4,
+          "title": "NEET 2022 Question Paper"
+        },
+        {
+          "id": 23,
+          "title": "NEET 2021 Question Paper"
+        },
+        {
+          "id": 24,
+          "title": "NEET 2020 Question Paper"
+        },
+        {
+          "id": 25,
+          "title": "NEET 2019 Question Paper"
+        },
+        {
+          "id": 26,
+          "title": "NEET 2018 Question Paper"
+        }
+      ]
+    },
+    {
+      "id": "formula-sheets",
+      "name": "Formula Sheets",
+      "description": "Important formulas and equations collection",
+      "icon": "file",
+      "count": 15,
+      "color": "indigo",
+      "featured": true,
+      "order": 5,
+      "tags": ["formulas", "equations", "cheat", "sheets", "reference"],
+      "resources": [
+        {
+          "id": 1,
+          "title": "Physics Formula Sheet"
+        },
+        {
+          "id": 7,
+          "title": "Biology Important Diagrams"
+        },
+        {
+          "id": 27,
+          "title": "Chemistry Equations Sheet"
+        },
+        {
+          "id": 28,
+          "title": "Mathematics Formula Collection"
+        },
+        {
+          "id": 29,
+          "title": "Physics Constants Reference"
+        }
+      ]
+    },
+    {
+      "id": "mindmaps",
+      "name": "Revision Mindmaps",
+      "description": "Visual revision aids for better retention",
+      "icon": "git-branch",
+      "count": 12,
+      "color": "pink",
+      "featured": true,
+      "order": 6,
+      "tags": ["mindmap", "visual", "revision", "diagrams", "memory"],
+      "resources": [
+        {
+          "id": 3,
+          "title": "Biology Mindmap"
+        },
+        {
+          "id": 10,
+          "title": "Biology Classification Chart"
+        },
+        {
+          "id": 30,
+          "title": "Chemistry Periodic Table Mindmap"
+        },
+        {
+          "id": 31,
+          "title": "Physics Concepts Mindmap"
+        },
+        {
+          "id": 32,
+          "title": "Human Physiology Diagrams"
+        }
+      ]
+    },
+    {
+      "id": "strategy-guides",
+      "name": "Strategy Guides",
+      "description": "Exam preparation and study strategies",
+      "icon": "target",
+      "count": 9,
+      "color": "yellow",
+      "featured": true,
+      "order": 7,
+      "tags": ["strategy", "preparation", "planning", "tips", "guides"],
+      "resources": [
+        {
+          "id": 5,
+          "title": "Physics Problem Solving Guide"
+        },
+        {
+          "id": 33,
+          "title": "NEET Study Plan 2023"
+        },
+        {
+          "id": 34,
+          "title": "Time Management for NEET"
+        },
+        {
+          "id": 35,
+          "title": "Biology Preparation Strategy"
+        },
+        {
+          "id": 36,
+          "title": "Chemistry Revision Techniques"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other Resources",
+      "description": "Additional study materials and resources",
+      "icon": "more-horizontal",
+      "count": 25,
+      "color": "gray",
+      "featured": false,
+      "order": 8,
+      "tags": ["additional", "miscellaneous", "supplementary", "extra", "resources"],
+      "resources": [
+        {
+          "id": 37,
+          "title": "NEET Syllabus 2023"
+        },
+        {
+          "id": 38,
+          "title": "Exam Pattern and Marking Scheme"
+        },
+        {
+          "id": 39,
+          "title": "Important Dates and Notifications"
+        },
+        {
+          "id": 40,
+          "title": "Cutoff Marks Analysis"
+        },
+        {
+          "id": 41,
+          "title": "College Ranking and Cutoffs"
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2023-04-15T16:45:00Z",
+    "totalCategories": 9,
+    "featuredCategories": 7,
+    "totalResources": 155,
+    "version": "1.2.0"
+  },
+  "featured": [
+    {
+      "categoryId": "short-notes",
+      "title": "Master Physics in 30 Days",
+      "description": "Comprehensive 30-day plan to master NEET Physics concepts",
+      "thumbnail": "physics-30-days.jpg"
+    },
+    {
+      "categoryId": "books",
+      "title": "Top 5 Books for NEET 2023",
+      "description": "Expert-recommended books for NEET preparation",
+      "thumbnail": "top-books.jpg"
+    },
+    {
+      "categoryId": "question-banks",
+      "title": "Daily Practice Problems",
+      "description": "Daily updated practice problems for all subjects",
+      "thumbnail": "daily-practice.jpg"
+    }
+  ]
+}

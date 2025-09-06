@@ -1,0 +1,282 @@
+{
+  "resources": [
+    {
+      "id": 1,
+      "title": "Physics Formula Sheet",
+      "description": "Comprehensive formula sheet for NEET Physics covering all important equations and concepts including Mechanics, Thermodynamics, Waves, Electromagnetism, and Modern Physics.",
+      "subject": "Physics",
+      "type": "PDF",
+      "tags": ["Formulas", "Physics", "NEET 2023", "Equations", "Reference"],
+      "date": "2023-03-12",
+      "size": "2.4 MB",
+      "thumbnail": "physics-formulas.jpg",
+      "filePath": "assets/pdfs/physics-formulas.pdf",
+      "category": "formula-sheets",
+      "pages": 24,
+      "downloads": 1240,
+      "rating": 4.7
+    },
+    {
+      "id": 2,
+      "title": "Organic Chemistry Notes",
+      "description": "Detailed notes on organic chemistry reactions and mechanisms for NEET preparation. Covers nomenclature, isomerism, reaction mechanisms, and important named reactions.",
+      "subject": "Chemistry",
+      "type": "Note",
+      "tags": ["Organic", "Chemistry", "Reactions", "Mechanisms", "Notes"],
+      "date": "2023-03-15",
+      "size": "1.8 MB",
+      "thumbnail": "organic-chemistry.jpg",
+      "filePath": "assets/pdfs/organic-chemistry.pdf",
+      "category": "short-notes",
+      "pages": 32,
+      "downloads": 980,
+      "rating": 4.5
+    },
+    {
+      "id": 3,
+      "title": "Biology Mindmap",
+      "description": "Visual mindmap covering all important topics in NEET Biology for quick revision. Includes Plant Kingdom, Animal Kingdom, Human Physiology, Genetics, and Ecology.",
+      "subject": "Biology",
+      "type": "Mindmap",
+      "tags": ["Mindmap", "Biology", "Revision", "Visual", "NEET 2023"],
+      "date": "2023-03-18",
+      "size": "3.2 MB",
+      "thumbnail": "biology-mindmap.jpg",
+      "filePath": "assets/pdfs/biology-mindmap.pdf",
+      "category": "mindmaps",
+      "pages": 18,
+      "downloads": 1560,
+      "rating": 4.8
+    },
+    {
+      "id": 4,
+      "title": "NEET 2022 Question Paper",
+      "description": "Previous year question paper with solutions for NEET 2022. Includes Physics, Chemistry, and Biology sections with detailed answer explanations.",
+      "subject": "All",
+      "type": "PYQ",
+      "tags": ["PYQ", "NEET 2022", "Solutions", "Practice", "Previous Year"],
+      "date": "2023-03-20",
+      "size": "4.1 MB",
+      "thumbnail": "neet-2022.jpg",
+      "filePath": "assets/pdfs/neet-2022.pdf",
+      "category": "pyqs",
+      "pages": 48,
+      "downloads": 2100,
+      "rating": 4.9
+    },
+    {
+      "id": 5,
+      "title": "Physics Problem Solving Guide",
+      "description": "Step-by-step guide to solving complex physics problems for NEET. Covers problem-solving strategies, common pitfalls, and practice questions with solutions.",
+      "subject": "Physics",
+      "type": "Guide",
+      "tags": ["Physics", "Problem Solving", "Strategy", "Guide", "Techniques"],
+      "date": "2023-03-22",
+      "size": "2.7 MB",
+      "thumbnail": "physics-problem-solving.jpg",
+      "filePath": "assets/pdfs/physics-problem-solving.pdf",
+      "category": "strategy-guides",
+      "pages": 40,
+      "downloads": 870,
+      "rating": 4.6
+    },
+    {
+      "id": 6,
+      "title": "Chemistry NCERT Summary",
+      "description": "Chapter-wise summary of NCERT Chemistry for quick revision. Covers Classes 11 and 12 Chemistry with important points and reactions highlighted.",
+      "subject": "Chemistry",
+      "type": "Summary",
+      "tags": ["Chemistry", "NCERT", "Summary", "Revision", "Class 11", "Class 12"],
+      "date": "2023-03-25",
+      "size": "1.9 MB",
+      "thumbnail": "chemistry-ncert-summary.jpg",
+      "filePath": "assets/pdfs/chemistry-ncert-summary.pdf",
+      "category": "short-notes",
+      "pages": 28,
+      "downloads": 1320,
+      "rating": 4.4
+    },
+    {
+      "id": 7,
+      "title": "Biology Important Diagrams",
+      "description": "Collection of important diagrams for NEET Biology. Includes diagrams of cell organelles, human heart, nephron, neuron, and photosynthesis process.",
+      "subject": "Biology",
+      "type": "Diagram",
+      "tags": ["Biology", "Diagrams", "Labeling", "Visual", "Important"],
+      "date": "2023-03-28",
+      "size": "3.5 MB",
+      "thumbnail": "biology-diagrams.jpg",
+      "filePath": "assets/pdfs/biology-diagrams.pdf",
+      "category": "formula-sheets",
+      "pages": 22,
+      "downloads": 1450,
+      "rating": 4.7
+    },
+    {
+      "id": 8,
+      "title": "NEET Chemistry Question Bank",
+      "description": "Comprehensive question bank for NEET Chemistry with 500+ multiple choice questions covering Physical, Organic, and Inorganic Chemistry.",
+      "subject": "Chemistry",
+      "type": "Question Bank",
+      "tags": ["Chemistry", "Question Bank", "MCQ", "Practice", "Exercises"],
+      "date": "2023-04-01",
+      "size": "4.8 MB",
+      "thumbnail": "chemistry-question-bank.jpg",
+      "filePath": "assets/pdfs/chemistry-question-bank.pdf",
+      "category": "question-banks",
+      "pages": 120,
+      "downloads": 1780,
+      "rating": 4.8
+    },
+    {
+      "id": 9,
+      "title": "Physics Laws and Principles",
+      "description": "Compilation of important physics laws and principles for NEET. Includes Newton's Laws, Thermodynamic Laws, Electromagnetic Laws, and Modern Physics Principles.",
+      "subject": "Physics",
+      "type": "Reference",
+      "tags": ["Physics", "Laws", "Principles", "Reference", "Concepts"],
+      "date": "2023-04-05",
+      "size": "2.1 MB",
+      "thumbnail": "physics-laws.jpg",
+      "filePath": "assets/pdfs/physics-laws.pdf",
+      "category": "short-notes",
+      "pages": 20,
+      "downloads": 920,
+      "rating": 4.5
+    },
+    {
+      "id": 10,
+      "title": "Biology Classification Chart",
+      "description": "Detailed classification chart for NEET Biology covering Plant Kingdom, Animal Kingdom, and Microbes. Includes characteristics and examples for each group.",
+      "subject": "Biology",
+      "type": "Chart",
+      "tags": ["Biology", "Classification", "Chart", "Taxonomy", "Kingdoms"],
+      "date": "2023-04-08",
+      "size": "2.9 MB",
+      "thumbnail": "biology-classification.jpg",
+      "filePath": "assets/pdfs/biology-classification.pdf",
+      "category": "mindmaps",
+      "pages": 16,
+      "downloads": 1150,
+      "rating": 4.6
+    },
+    {
+      "id": 11,
+      "title": "NEET Physics Mock Test 1",
+      "description": "Full-length NEET Physics mock test with 50 questions and detailed solutions. Covers all major topics with varying difficulty levels.",
+      "subject": "Physics",
+      "type": "Mock Test",
+      "tags": ["Physics", "Mock Test", "Practice", "NEET", "Exam"],
+      "date": "2023-04-12",
+      "size": "1.7 MB",
+      "thumbnail": "physics-mock-test.jpg",
+      "filePath": "assets/pdfs/physics-mock-test.pdf",
+      "category": "question-banks",
+      "pages": 26,
+      "downloads": 1650,
+      "rating": 4.7
+    },
+    {
+      "id": 12,
+      "title": "Chemistry Reaction Mechanisms",
+      "description": "Detailed explanation of important organic chemistry reaction mechanisms for NEET. Includes SN1, SN2, E1, E2, and aromatic substitution reactions.",
+      "subject": "Chemistry",
+      "type": "Mechanism",
+      "tags": ["Chemistry", "Reactions", "Mechanisms", "Organic", "Detailed"],
+      "date": "2023-04-15",
+      "size": "3.3 MB",
+      "thumbnail": "chemistry-mechanisms.jpg",
+      "filePath": "assets/pdfs/chemistry-mechanisms.pdf",
+      "category": "short-notes",
+      "pages": 34,
+      "downloads": 1020,
+      "rating": 4.8
+    }
+  ],
+  "categories": [
+    {
+      "id": "short-notes",
+      "name": "Short Notes",
+      "description": "Concise notes for quick revision",
+      "icon": "file-text",
+      "count": 24
+    },
+    {
+      "id": "books",
+      "name": "Best Books (PDFs)",
+      "description": "Recommended textbooks in PDF format",
+      "icon": "book-open",
+      "count": 18
+    },
+    {
+      "id": "question-banks",
+      "name": "Question Banks",
+      "description": "Practice questions and exercises",
+      "icon": "help-circle",
+      "count": 32
+    },
+    {
+      "id": "pyqs",
+      "name": "PYQs",
+      "description": "Previous Year Question papers",
+      "icon": "archive",
+      "count": 15
+    },
+    {
+      "id": "formula-sheets",
+      "name": "Formula Sheets",
+      "description": "Important formulas and equations",
+      "icon": "file",
+      "count": 12
+    },
+    {
+      "id": "mindmaps",
+      "name": "Revision Mindmaps",
+      "description": "Visual revision aids",
+      "icon": "git-branch",
+      "count": 8
+    },
+    {
+      "id": "strategy-guides",
+      "name": "Strategy Guides",
+      "description": "Exam preparation strategies",
+      "icon": "target",
+      "count": 6
+    },
+    {
+      "id": "other",
+      "name": "Other Resources",
+      "description": "Additional study materials",
+      "icon": "more-horizontal",
+      "count": 22
+    }
+  ],
+  "subjects": [
+    {
+      "id": "physics",
+      "name": "Physics",
+      "color": "blue"
+    },
+    {
+      "id": "chemistry",
+      "name": "Chemistry",
+      "color": "green"
+    },
+    {
+      "id": "biology",
+      "name": "Biology",
+      "color": "orange"
+    },
+    {
+      "id": "all",
+      "name": "All Subjects",
+      "color": "purple"
+    }
+  ],
+  "metadata": {
+    "lastUpdated": "2023-04-15T14:30:00Z",
+    "totalResources": 12,
+    "totalDownloads": 15730,
+    "averageRating": 4.65
+  }
+}
